@@ -5,7 +5,7 @@ const rowCounter = "#search > div.s-desktop-width-max.s-desktop-content.sg-row >
 
 module.exports = {
   async getINFO(query){
-    const url = `https://www.amazon.com.br/s?k=${query.split(' ').join('+')}`;
+    const url = `https://www.amazon.com.br/s?k=${encodeURIComponent(query)}`;
     const { data: html } = await axios.get(url).catch(() => {
       console.log("Couldn't get the page ☹️")
     });
